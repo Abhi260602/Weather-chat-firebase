@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flash_chat/clima/location_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flash_chat/constants.dart';
+import 'package:flash_chat/utilities/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -51,6 +52,11 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         leading: null,
         actions: <Widget>[
+          IconButton(onPressed: (){
+                Navigator.push(context, 
+                MaterialPageRoute(
+                  builder: (context)=>LocationScreen()));
+              }, icon: Icon(Icons.cloud)),
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
@@ -58,9 +64,11 @@ class _ChatScreenState extends State<ChatScreen> {
                // _auth.signOut();
               //  Navigator.pop(context);
               }),
+              
         ],
         title: Text('⚡️Chat'),
         backgroundColor: Colors.lightBlueAccent,
+        
       ),
       body: SafeArea(
         child: Column(
